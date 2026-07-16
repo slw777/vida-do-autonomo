@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>💳 Maquininhas de cartão — Vida do Autônomo</title>
+<meta name="description" content="Guia comparativo de maquininhas de cartão para autônomos e MEI: taxas, tipos de maquininha e como escolher a melhor opção.">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="article">
+<meta property="og:title" content="💳 Maquininhas de cartão — Vida do Autônomo">
+<meta property="og:description" content="Guia comparativo de maquininhas de cartão para autônomos e MEI: taxas, tipos de maquininha e como escolher a melhor opção.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+    --ink: #0F2A24;
+    --ink-2: #12312B;
+    --ink-3: #1A4038;
+    --paper: #F3EFE6;
+    --paper-dim: #DCE5DE;
+    --brass: #C9A24B;
+    --brass-light: #E4C77A;
+    --coral-line: #8C6A4A;
+    --red-ledger: #A6473A;
+    --green-ledger: #4C7A5E;
+    --font-display: 'Fraunces', serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--font-body);
+    line-height:1.5;
+    overflow-x:hidden;
+  }
+
+  a{ color:inherit; text-decoration:none; }
+
+  .wrap{ max-width:1180px; margin:0 auto; padding:0 32px; }
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background: rgba(15,42,36,0.85);
+    backdrop-filter: blur(10px);
+    border-bottom:1px solid rgba(201,162,75,0.15);
+  }
+  .nav-inner{
+    max-width:1180px; margin:0 auto; padding:18px 32px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .logo{
+    font-family:var(--font-display);
+    font-size:1.3rem; font-weight:600;
+    letter-spacing:0.01em;
+    display:flex; align-items:center; gap:10px;
+  }
+  .logo .mark{
+    width:26px; height:26px; border:1.5px solid var(--brass);
+    border-radius:3px; position:relative; flex-shrink:0;
+  }
+  .logo .mark::before, .logo .mark::after{
+    content:''; position:absolute; left:5px; right:5px; height:1.5px; background:var(--brass);
+  }
+  .logo .mark::before{ top:8px; }
+  .logo .mark::after{ top:14px; width:60%; }
+
+  .nav-links{ display:flex; gap:36px; font-size:0.92rem; font-weight:500; }
+  .nav-links a{ opacity:0.8; transition:opacity 0.2s; position:relative; }
+  .nav-links a:hover{ opacity:1; }
+  .nav-cta{
+    background:var(--brass); color:var(--ink); padding:9px 20px;
+    border-radius:2px; font-weight:600; font-size:0.88rem;
+    transition:background 0.2s;
+  }
+  .nav-cta:hover{ background:var(--brass-light); }
+
+  @media (max-width:840px){
+    .nav-links{ display:none; }
+  }
+
+  /* ---------- HERO ---------- */
+  header.hero{
+    padding:170px 0 90px;
+    position:relative;
+  }
+  .hero-inner{
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:60px; align-items:center;
+  }
+  .eyebrow{
+    font-family:var(--font-mono); font-size:0.78rem; letter-spacing:0.12em;
+    text-transform:uppercase; color:var(--brass-light); margin-bottom:22px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{ content:''; width:22px; height:1px; background:var(--brass); }
+
+  h1{
+    font-family:var(--font-display);
+    font-size:clamp(2.4rem, 4.6vw, 3.9rem);
+    font-weight:600; line-height:1.06; letter-spacing:-0.01em;
+    margin-bottom:26px;
+  }
+  h1 em{
+    font-style:italic; font-weight:500; color:var(--brass-light);
+  }
+
+  .hero-sub{
+    font-size:1.08rem; color:rgba(243,239,230,0.72); max-width:480px; margin-bottom:36px;
+  }
+
+  .hero-actions{ display:flex; gap:16px; align-items:center; flex-wrap:wrap; }
+  .btn-primary{
+    background:var(--brass); color:var(--ink); padding:15px 28px;
+    font-weight:600; font-size:0.95rem; border-radius:2px;
+    display:inline-flex; align-items:center; gap:10px;
+    transition:transform 0.2s, background 0.2s;
+  }
+  .btn-primary:hover{ background:var(--brass-light); transform:translateY(-1px); }
+  .btn-ghost{
+    color:var(--paper); font-weight:500; font-size:0.95rem;
+    border-bottom:1px solid rgba(243,239,230,0.35); padding-bottom:2px;
+    transition:border-color 0.2s;
+  }
+  .btn-ghost:hover{ border-color:var(--paper); }
+
+  /* ---------- LEDGER BALANCE (signature element) ---------- */
+  .ledger-card{
+    background:var(--ink-2);
+    border:1px solid rgba(201,162,75,0.25);
+    border-radius:4px;
+    padding:32px 28px 26px;
+    position:relative;
+  }
+  .ledger-title{
+    font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.1em;
+    text-transform:uppercase; color:rgba(243,239,230,0.5); margin-bottom:22px;
+    display:flex; justify-content:space-between;
+  }
+  .ledger-row{ margin-bottom:22px; }
+  .ledger-row:last-child{ margin-bottom:0; }
+  .ledger-label{
+    display:flex; justify-content:space-between; align-items:baseline;
+    font-family:var(--font-mono); font-size:0.82rem; margin-bottom:8px;
+  }
+  .ledger-label .name{ color:var(--paper); font-weight:500; }
+  .ledger-label .val{ color:var(--brass-light); }
+  .ledger-track{
+    height:7px; background:rgba(243,239,230,0.08); border-radius:4px; overflow:hidden;
+  }
+  .ledger-fill{
+    height:100%; border-radius:4px; width:0%;
+    transition:width 1.4s cubic-bezier(.16,.8,.3,1);
+  }
+  .fill-money{ background:var(--brass); }
+  .fill-time{ background:var(--green-ledger); }
+  .fill-energy{ background:var(--red-ledger); }
+
+  .ledger-card.in-view .fill-money{ width:78%; }
+  .ledger-card.in-view .fill-time{ width:54%; }
+  .ledger-card.in-view .fill-energy{ width:63%; }
+
+  .ledger-foot{
+    margin-top:24px; padding-top:18px; border-top:1px dashed rgba(243,239,230,0.15);
+    font-family:var(--font-mono); font-size:0.74rem; color:rgba(243,239,230,0.45);
+  }
+
+  /* ---------- SECTION SHELLS ---------- */
+  section{ padding:100px 0; }
+  .section-head{ max-width:640px; margin-bottom:56px; }
+  .section-tag{
+    font-family:var(--font-mono); font-size:0.76rem; letter-spacing:0.1em;
+    text-transform:uppercase; color:var(--brass-light); margin-bottom:16px;
+  }
+  h2{
+    font-family:var(--font-display); font-weight:600;
+    font-size:clamp(1.8rem, 3vw, 2.6rem); line-height:1.15; letter-spacing:-0.01em;
+  }
+  .section-desc{ margin-top:16px; color:rgba(243,239,230,0.65); font-size:1.02rem; }
+
+  /* ---------- THREE PILLARS ---------- */
+  .pillars{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:1px;
+    background:rgba(201,162,75,0.2);
+    border:1px solid rgba(201,162,75,0.2);
+  }
+  .pillar{
+    background:var(--ink); padding:44px 34px; position:relative;
+    transition:background 0.3s;
+  }
+  .pillar:hover{ background:var(--ink-2); }
+  .pillar-num{
+    font-family:var(--font-mono); font-size:0.75rem; color:rgba(243,239,230,0.4); margin-bottom:28px;
+  }
+  .pillar h3{
+    font-family:var(--font-display); font-size:1.5rem; font-weight:600; margin-bottom:14px;
+  }
+  .pillar p{ color:rgba(243,239,230,0.62); font-size:0.94rem; margin-bottom:22px; }
+  .pillar-link{
+    font-size:0.85rem; font-weight:600; color:var(--brass-light);
+    display:inline-flex; align-items:center; gap:6px;
+  }
+  .pillar-line{
+    position:absolute; top:0; left:0; width:100%; height:2px;
+  }
+  .pillar:nth-child(1) .pillar-line{ background:var(--brass); }
+  .pillar:nth-child(2) .pillar-line{ background:var(--green-ledger); }
+  .pillar:nth-child(3) .pillar-line{ background:var(--red-ledger); }
+
+  @media (max-width:840px){
+    .pillars{ grid-template-columns:1fr; }
+    .hero-inner{ grid-template-columns:1fr; }
+  }
+
+  /* ---------- ARTICLES ---------- */
+  .articles-band{ background:var(--paper); color:var(--ink); }
+  .articles-band .section-tag{ color:var(--coral-line); }
+  .articles-band h2{ color:var(--ink); }
+  .articles-band .section-desc{ color:rgba(15,42,36,0.65); }
+
+  .article-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:34px;
+  }
+  .article-card{
+    background:#fff; border:1px solid rgba(15,42,36,0.08);
+    display:flex; flex-direction:column; transition:transform 0.25s, box-shadow 0.25s;
+  }
+  .article-card:hover{ transform:translateY(-4px); box-shadow:0 16px 34px rgba(15,42,36,0.12); }
+  .article-thumb{
+    height:150px; position:relative; overflow:hidden;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .article-thumb span{
+    font-family:var(--font-mono); font-size:0.7rem; letter-spacing:0.08em;
+    text-transform:uppercase; color:rgba(243,239,230,0.85); position:relative; z-index:2;
+  }
+  .thumb-money{ background:linear-gradient(135deg,#1A4038,#0F2A24); }
+  .thumb-time{ background:linear-gradient(135deg,#3A5A48,#1A4038); }
+  .thumb-energy{ background:linear-gradient(135deg,#5B3A32,#1A4038); }
+  .article-body{ padding:24px 24px 26px; flex:1; display:flex; flex-direction:column; }
+  .article-cat{
+    font-family:var(--font-mono); font-size:0.7rem; letter-spacing:0.08em;
+    text-transform:uppercase; color:var(--coral-line); margin-bottom:10px;
+  }
+  .article-body h3{
+    font-family:var(--font-display); font-size:1.18rem; font-weight:600;
+    line-height:1.3; margin-bottom:12px;
+  }
+  .article-body p{ font-size:0.88rem; color:rgba(15,42,36,0.6); flex:1; }
+  .article-meta{
+    margin-top:18px; padding-top:16px; border-top:1px solid rgba(15,42,36,0.08);
+    font-size:0.78rem; color:rgba(15,42,36,0.45); display:flex; justify-content:space-between;
+  }
+
+  @media (max-width:900px){
+    .article-grid{ grid-template-columns:1fr; }
+  }
+
+  /* ---------- NEWSLETTER ---------- */
+  .newsletter{
+    background:var(--ink-3);
+    border-top:1px solid rgba(201,162,75,0.2);
+    border-bottom:1px solid rgba(201,162,75,0.2);
+  }
+  .newsletter-inner{
+    display:flex; justify-content:space-between; align-items:center; gap:40px; flex-wrap:wrap;
+  }
+  .newsletter h2{ max-width:420px; }
+  .newsletter-form{ display:flex; gap:0; max-width:420px; width:100%; }
+  .newsletter-form input{
+    flex:1; background:var(--ink); border:1px solid rgba(201,162,75,0.35);
+    border-right:none; color:var(--paper); padding:15px 18px; font-family:var(--font-body);
+    font-size:0.92rem; outline:none;
+  }
+  .newsletter-form input::placeholder{ color:rgba(243,239,230,0.4); }
+  .newsletter-form button{
+    background:var(--brass); color:var(--ink); border:none; padding:0 26px;
+    font-weight:600; font-size:0.9rem; cursor:pointer; transition:background 0.2s;
+  }
+  .newsletter-form button:hover{ background:var(--brass-light); }
+  .newsletter-note{ font-size:0.78rem; color:rgba(243,239,230,0.4); margin-top:12px; }
+
+  /* ---------- ABOUT ---------- */
+  .about-inner{
+    display:grid; grid-template-columns:0.8fr 1.2fr; gap:60px; align-items:center;
+  }
+  .about-portrait{
+    aspect-ratio:1; background:var(--ink-2); border:1px solid rgba(201,162,75,0.25);
+    border-radius:4px; display:flex; align-items:center; justify-content:center;
+    position:relative;
+  }
+  .about-portrait .initials{
+    font-family:var(--font-display); font-size:3.2rem; color:var(--brass-light); font-weight:600;
+  }
+  .about-text .section-tag{ margin-bottom:16px; }
+  .about-text p{ color:rgba(243,239,230,0.68); margin-bottom:16px; font-size:1rem; }
+
+  @media (max-width:840px){
+    .about-inner{ grid-template-columns:1fr; }
+    .about-portrait{ max-width:220px; }
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{ padding:60px 0 40px; border-top:1px solid rgba(201,162,75,0.15); }
+  .footer-inner{
+    display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:30px;
+  }
+  .footer-cols{ display:flex; gap:70px; flex-wrap:wrap; }
+  .footer-col h4{
+    font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.1em;
+    text-transform:uppercase; color:rgba(243,239,230,0.45); margin-bottom:16px;
+  }
+  .footer-col a{
+    display:block; font-size:0.88rem; color:rgba(243,239,230,0.75);
+    margin-bottom:10px; transition:color 0.2s;
+  }
+  .footer-col a:hover{ color:var(--brass-light); }
+  .footer-bottom{
+    margin-top:50px; padding-top:24px; border-top:1px solid rgba(201,162,75,0.1);
+    display:flex; justify-content:space-between; font-size:0.78rem; color:rgba(243,239,230,0.4);
+    flex-wrap:wrap; gap:10px;
+  }
+
+  /* ---------- REVEAL ANIMATION ---------- */
+  .reveal{ opacity:0; transform:translateY(24px); transition:opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.in-view{ opacity:1; transform:translateY(0); }
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal, .ledger-fill{ transition:none !important; }
+  }
+
+  ::selection{ background:var(--brass); color:var(--ink); }
+
+  a:focus-visible, button:focus-visible, input:focus-visible{
+    outline:2px solid var(--brass-light); outline-offset:2px;
+  }
+
+/* ---------- ARTICLE PAGE ---------- */
+.article-page-header{
+  padding:150px 0 50px;
+  border-bottom:1px solid rgba(201,162,75,0.15);
+}
+.breadcrumb{
+  font-family:var(--font-mono); font-size:0.78rem; color:rgba(243,239,230,0.5);
+  margin-bottom:24px; display:flex; align-items:center; gap:8px;
+}
+.breadcrumb a{ color:var(--brass-light); }
+.article-page-header .article-cat{ margin-bottom:16px; }
+.article-page-header h1{ font-size:clamp(2rem, 4vw, 2.9rem); margin-bottom:20px; }
+.article-page-meta{
+  display:flex; gap:24px; font-family:var(--font-mono); font-size:0.8rem;
+  color:rgba(243,239,230,0.5); flex-wrap:wrap;
+}
+.article-content{ padding:60px 0 100px; }
+.article-content .wrap{ max-width:720px; }
+.article-content p{ font-size:1.05rem; color:rgba(243,239,230,0.82); margin-bottom:22px; }
+.article-content h2{ font-size:1.6rem; margin:44px 0 18px; }
+.article-content h3{ font-family:var(--font-display); font-size:1.25rem; margin:32px 0 14px; color:var(--paper); }
+.article-content ul{ margin:0 0 22px 22px; color:rgba(243,239,230,0.82); }
+.article-content li{ margin-bottom:10px; font-size:1.02rem; }
+.article-content strong{ color:var(--brass-light); }
+.pull-quote{
+  border-left:2px solid var(--brass); padding:6px 0 6px 24px; margin:34px 0;
+  font-family:var(--font-display); font-style:italic; font-size:1.2rem; color:var(--brass-light);
+}
+.article-footer-nav{
+  border-top:1px solid rgba(201,162,75,0.15); padding-top:30px; margin-top:50px;
+  display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px;
+}
+
+/* ---------- ARTICLE PAGE v2: visual upgrades ---------- */
+.read-progress{
+  position:fixed; top:0; left:0; height:3px; background:var(--brass);
+  z-index:200; width:0%; transition:width 0.1s linear;
+}
+
+.article-cover{
+  height:260px; margin-top:0; position:relative; overflow:hidden;
+  display:flex; align-items:flex-end;
+}
+.article-cover::before{
+  content:''; position:absolute; inset:0; opacity:0.5;
+  background-image:
+    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(243,239,230,0.05) 40px),
+    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(243,239,230,0.05) 40px);
+}
+.cover-money{ background:linear-gradient(135deg,#1A4038 0%,#0F2A24 60%,#0A1E19 100%); }
+.cover-time{ background:linear-gradient(135deg,#3A5A48 0%,#1A4038 60%,#0F2A24 100%); }
+.cover-energy{ background:linear-gradient(135deg,#5B3A32 0%,#1A4038 60%,#0F2A24 100%); }
+.article-cover .cover-glyph{
+  position:absolute; right:40px; top:50%; transform:translateY(-50%);
+  font-family:var(--font-display); font-size:9rem; font-weight:600;
+  color:rgba(243,239,230,0.06); line-height:1; user-select:none;
+}
+.article-cover .cover-tag{
+  position:relative; z-index:2; padding:0 0 26px 0;
+  font-family:var(--font-mono); font-size:0.78rem; letter-spacing:0.1em;
+  text-transform:uppercase; color:var(--brass-light);
+}
+
+.article-page-header{ padding:44px 0 40px; border-bottom:none; }
+
+.byline{
+  display:flex; align-items:center; gap:14px; margin-top:28px;
+  padding-top:24px; border-top:1px solid rgba(201,162,75,0.15);
+}
+.byline .avatar{
+  width:38px; height:38px; border-radius:50%; background:var(--ink-2);
+  border:1px solid rgba(201,162,75,0.3); display:flex; align-items:center; justify-content:center;
+  font-family:var(--font-display); font-size:0.9rem; color:var(--brass-light); flex-shrink:0;
+}
+.byline .who{ font-size:0.86rem; }
+.byline .who .name{ font-weight:600; color:var(--paper); }
+.byline .who .meta{ color:rgba(243,239,230,0.5); font-family:var(--font-mono); font-size:0.76rem; }
+
+.article-content > .wrap > p:first-of-type::first-letter{
+  font-family:var(--font-display); font-size:3.6rem; font-weight:600; float:left;
+  line-height:0.85; padding:6px 10px 0 0; color:var(--brass-light);
+}
+
+.toc{
+  border:1px solid rgba(201,162,75,0.2); background:var(--ink-2);
+  padding:22px 26px; margin-bottom:40px;
+}
+.toc-title{
+  font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.1em;
+  text-transform:uppercase; color:rgba(243,239,230,0.5); margin-bottom:14px;
+}
+.toc a{
+  display:block; font-size:0.92rem; color:var(--paper); padding:6px 0;
+  border-bottom:1px dashed rgba(243,239,230,0.1);
+}
+.toc a:last-child{ border-bottom:none; }
+.toc a:hover{ color:var(--brass-light); }
+.toc a span{ font-family:var(--font-mono); color:var(--brass); margin-right:10px; font-size:0.82rem; }
+
+.key-takeaway{
+  background:var(--ink-2); border:1px solid rgba(201,162,75,0.25);
+  border-radius:4px; padding:26px 28px; margin:38px 0;
+}
+.key-takeaway .kt-label{
+  font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.1em;
+  text-transform:uppercase; color:var(--brass-light); margin-bottom:10px;
+}
+.key-takeaway p{ margin-bottom:0; font-size:0.98rem; }
+
+.related-band{ background:var(--paper); color:var(--ink); padding:80px 0; }
+.related-band .section-tag{ color:var(--coral-line); }
+.related-band h2{ color:var(--ink); margin-bottom:40px; }
+
+.share-row{
+  display:flex; align-items:center; gap:16px; margin:36px 0;
+  padding:18px 0; border-top:1px solid rgba(201,162,75,0.15);
+  border-bottom:1px solid rgba(201,162,75,0.15);
+}
+.share-row .label{ font-family:var(--font-mono); font-size:0.76rem; color:rgba(243,239,230,0.5); }
+.share-btn{
+  width:34px; height:34px; border:1px solid rgba(201,162,75,0.3); border-radius:50%;
+  display:flex; align-items:center; justify-content:center; font-size:0.8rem;
+  color:var(--brass-light); transition:background 0.2s;
+}
+.share-btn:hover{ background:rgba(201,162,75,0.15); }
+
+/* ---------- ARTICLE INDEX PAGE ---------- */
+.articles-index-header{ padding:150px 0 50px; }
+.filter-tabs{
+  display:flex; gap:10px; margin-top:30px; flex-wrap:wrap;
+}
+.filter-tab{
+  font-family:var(--font-mono); font-size:0.82rem; padding:9px 18px;
+  border:1px solid rgba(201,162,75,0.3); border-radius:20px; color:rgba(243,239,230,0.65);
+  transition:all 0.2s; cursor:pointer;
+}
+.filter-tab:hover{ border-color:var(--brass); color:var(--paper); }
+.filter-tab.active{ background:var(--brass); color:var(--ink); border-color:var(--brass); font-weight:600; }
+.index-grid{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:34px; padding-bottom:100px;
+}
+.index-grid .article-card{ background:var(--ink-2); border:1px solid rgba(201,162,75,0.15); }
+.index-grid .article-card:hover{ border-color:rgba(201,162,75,0.4); }
+.index-grid .article-cat{ color:var(--brass-light); }
+.index-grid .article-body h3{ color:var(--paper); }
+.index-grid .article-body p{ color:rgba(243,239,230,0.6); }
+.index-grid .article-meta{ border-top-color:rgba(201,162,75,0.12); color:rgba(243,239,230,0.4); }
+@media (max-width:900px){ .index-grid{ grid-template-columns:1fr; } }
+
+/* ---------- SIMPLE PAGE HEADER (sobre/contato/privacidade) ---------- */
+.simple-header{ padding:150px 0 60px; }
+.simple-header .section-tag{ margin-bottom:16px; }
+.simple-header h1{ font-family:var(--font-display); font-weight:600; font-size:clamp(2rem,4vw,2.8rem); }
+
+/* ---------- CONTACT FORM ---------- */
+.contact-grid{ display:grid; grid-template-columns:1fr 1fr; gap:60px; padding-bottom:100px; }
+.contact-info p{ color:rgba(243,239,230,0.68); margin-bottom:18px; font-size:1rem; }
+.contact-info .info-row{ display:flex; gap:12px; margin-bottom:16px; font-size:0.95rem; }
+.contact-info .info-row .k{ font-family:var(--font-mono); color:var(--brass-light); min-width:90px; font-size:0.82rem; padding-top:2px; }
+.form-field{ margin-bottom:20px; }
+.form-field label{ display:block; font-family:var(--font-mono); font-size:0.76rem; letter-spacing:0.06em; text-transform:uppercase; color:rgba(243,239,230,0.55); margin-bottom:8px; }
+.form-field input, .form-field textarea{
+  width:100%; background:var(--ink-2); border:1px solid rgba(201,162,75,0.3);
+  color:var(--paper); padding:13px 16px; font-family:var(--font-body); font-size:0.95rem;
+  outline:none; border-radius:2px;
+}
+.form-field textarea{ min-height:120px; resize:vertical; }
+.form-field input:focus, .form-field textarea:focus{ border-color:var(--brass); }
+@media (max-width:840px){ .contact-grid{ grid-template-columns:1fr; } }
+
+/* ---------- PRIVACY / LEGAL TEXT PAGE ---------- */
+.legal-content{ padding-bottom:100px; }
+.legal-content .wrap{ max-width:760px; }
+.legal-content h2{ font-size:1.4rem; margin:38px 0 14px; }
+.legal-content p{ color:rgba(243,239,230,0.75); margin-bottom:16px; font-size:0.98rem; }
+.legal-content ul{ margin:0 0 18px 22px; color:rgba(243,239,230,0.75); }
+.legal-content li{ margin-bottom:8px; font-size:0.96rem; }
+.legal-updated{ font-family:var(--font-mono); font-size:0.78rem; color:rgba(243,239,230,0.4); margin-bottom:40px; }
+
+/* ---------- PHOTO COVER (substitui gradiente puro por foto real) ---------- */
+.article-cover{
+  background-size:cover; background-position:center;
+}
+.article-cover::after{
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(15,42,36,0.55) 0%, rgba(15,42,36,0.85) 100%);
+}
+.article-cover .cover-glyph, .article-cover .cover-tag{ position:relative; z-index:3; }
+
+/* thumbnails de card com foto de fundo */
+.article-thumb{ background-size:cover; background-position:center; position:relative; }
+.article-thumb::after{ content:''; position:absolute; inset:0; background:rgba(15,42,36,0.45); }
+.article-thumb span{ position:relative; z-index:2; }
+
+/* ---------- INLINE PHOTO WITHIN ARTICLE ---------- */
+.article-photo{
+  width:100%; border-radius:4px; overflow:hidden; margin:34px 0;
+  border:1px solid rgba(201,162,75,0.2);
+}
+.article-photo img{ width:100%; height:auto; display:block; }
+.article-photo-caption{
+  font-family:var(--font-mono); font-size:0.74rem; color:rgba(243,239,230,0.4);
+  padding:10px 2px 0;
+}
+
+/* ---------- AFFILIATE / PRODUCT BOX ---------- */
+.affiliate-box{
+  display:flex; gap:20px; align-items:center; background:var(--ink-2);
+  border:1px solid rgba(201,162,75,0.3); border-radius:4px; padding:20px;
+  margin:36px 0;
+}
+.affiliate-box img{
+  width:88px; height:88px; object-fit:cover; border-radius:3px; flex-shrink:0;
+}
+.affiliate-box .aff-body{ flex:1; }
+.affiliate-box .aff-label{
+  font-family:var(--font-mono); font-size:0.68rem; letter-spacing:0.08em; text-transform:uppercase;
+  color:var(--brass-light); margin-bottom:6px;
+}
+.affiliate-box h4{
+  font-family:var(--font-display); font-size:1.05rem; font-weight:600; margin-bottom:6px; color:var(--paper);
+}
+.affiliate-box p{
+  font-size:0.85rem; color:rgba(243,239,230,0.6); margin-bottom:12px !important;
+}
+.affiliate-box a.aff-btn{
+  display:inline-block; background:var(--brass); color:var(--ink); font-weight:600;
+  font-size:0.82rem; padding:8px 18px; border-radius:2px;
+}
+.affiliate-box a.aff-btn:hover{ background:var(--brass-light); }
+
+/* ---------- AD SLOT (Google AdSense placeholder) ---------- */
+.ad-slot{
+  border:1px dashed rgba(201,162,75,0.35); border-radius:4px;
+  padding:28px 20px; text-align:center; margin:36px 0;
+  font-family:var(--font-mono); font-size:0.76rem; color:rgba(243,239,230,0.4);
+  letter-spacing:0.04em;
+}
+.ad-slot .ad-slot-tag{
+  font-size:0.68rem; text-transform:uppercase; letter-spacing:0.1em; color:rgba(243,239,230,0.3);
+  margin-bottom:6px; display:block;
+}
+
+</style>
+</head>
+<body>
+
+<div class="read-progress" id="progressBar"></div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo"><span class="mark"></span>Vida do Autônomo</a>
+    <div class="nav-links">
+      <a href="index.html#pilares">Pilares</a>
+      <a href="artigos.html">Artigos</a>
+      <a href="sobre.html">Sobre</a>
+    </div>
+    <a href="index.html#newsletter" class="nav-cta">Assinar grátis</a>
+  </div>
+</nav>
+
+<div class="article-cover cover-money" style="background-image:url('https://picsum.photos/seed/maquininhas-cartao-cover/1200/500');">
+  <div class="cover-glyph">01</div>
+  <div class="wrap"><div class="cover-tag">Pilar 01 — Dinheiro</div></div>
+</div>
+
+<header class="article-page-header">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="index.html">Início</a> / <a href="artigos.html">Artigos</a> / Dinheiro</div>
+    <div class="article-cat">Pagamentos</div>
+    <h1>💳 Maquininhas de cartão</h1>
+    <div class="article-page-meta">
+      <span>9 min de leitura</span>
+      <span>Comparativo</span>
+      <span>Atualizado em jul/2026</span>
+    </div>
+    <div class="byline">
+      <div class="avatar">VA</div>
+      <div class="who"><div class="name">Vida do Autônomo</div><div class="meta">Redação · Finanças para quem trabalha por conta própria</div></div>
+    </div>
+  </div>
+</header>
+
+<article class="article-content">
+  <div class="wrap">
+
+    <div class="toc">
+      <div class="toc-title">Nesse artigo</div>
+      <a href="#por-que-ter"><span>01</span>Por que aceitar cartão muda o resultado do mês</a>
+      <a href="#taxas"><span>02</span>Como as taxas realmente funcionam</a>
+      <a href="#tipos"><span>03</span>Maquininha própria, por assinatura ou vinculada a banco</a>
+      <a href="#como-escolher"><span>04</span>Como comparar antes de escolher</a>
+      <a href="#antecipacao"><span>05</span>O cuidado com a antecipação de recebíveis</a>
+    </div>
+
+    <div class="ad-slot"><span class="ad-slot-tag">Publicidade</span>Espaço reservado para anúncio (Google AdSense) — 728×90 ou responsivo</div>
+
+
+    <p>Recusar cartão ainda é comum entre autônomos que começaram vendendo só no dinheiro ou Pix, mas isso tem um custo invisível: parte real dos clientes simplesmente não fecha negócio quando não existe opção de cartão, principalmente para valores mais altos.</p>
+
+    <h2 id="por-que-ter">Por que aceitar cartão muda o resultado do mês</h2>
+    <p>Cartão de crédito, em especial, permite ao cliente parcelar — o que muitas vezes é o que decide entre "vou fechar com você" e "vou pensar mais um pouco". Para quem presta serviço ou vende produto de ticket médio mais alto, essa única mudança já costuma compensar a taxa cobrada pela maquininha.</p>
+
+    <h2 id="taxas">Como as taxas realmente funcionam</h2>
+    <p>Toda maquininha cobra uma taxa percentual sobre cada venda, que varia principalmente conforme:</p>
+    <ul>
+      <li><strong>Forma de pagamento:</strong> débito costuma ter taxa menor que crédito à vista, que por sua vez costuma ser menor que crédito parcelado.</li>
+      <li><strong>Prazo de recebimento:</strong> receber em 1 dia útil tem taxa maior do que esperar o prazo padrão (geralmente 30 dias).</li>
+      <li><strong>Volume de vendas:</strong> quanto mais você vende pela mesma maquininha, mais espaço costuma haver para negociar taxa menor.</li>
+    </ul>
+
+    <div class="pull-quote">A pergunta certa não é "qual maquininha tem a menor taxa anunciada". É "qual maquininha custa menos no meu volume real de vendas, no prazo que eu preciso receber".</div>
+
+    <h3 id="tipos">Maquininha própria, por assinatura ou vinculada a banco</h3>
+    <p>Hoje existem basicamente três modelos: comprar uma maquininha avulsa de uma adquirente (com ou sem mensalidade), assinar um plano mensal com taxa fixa reduzida, ou usar a maquininha oferecida pelo próprio banco onde você já tem conta — essa última costuma ter a vantagem de integrar automaticamente o recebimento ao extrato da conta.</p>
+
+    <h2 id="como-escolher">Como comparar antes de escolher</h2>
+    <p>Antes de decidir, vale simular sua própria rotina de vendas: quanto você fatura por mês, qual a forma de pagamento mais usada pelos clientes (débito, crédito à vista, parcelado) e se você precisa do dinheiro rápido ou pode esperar o prazo padrão. Comparar taxas isoladas, sem considerar esse contexto, costuma levar à escolha errada.</p>
+
+    <h2 id="antecipacao">O cuidado com a antecipação de recebíveis</h2>
+    <p>A maioria das maquininhas oferece a opção de antecipar o recebimento de vendas parceladas, mediante uma taxa adicional. É uma ferramenta útil em aperto pontual de caixa, mas usada com frequência acaba corroendo boa parte da margem do negócio — vale tratar como exceção, não como rotina.</p>
+
+
+    <div class="article-photo">
+      <img src="https://picsum.photos/seed/maquininhas-cartao-mid/900/500" alt="💳 Maquininhas de cartão">
+      <div class="article-photo-caption">Foto ilustrativa — troque por uma foto própria ou licenciada antes de publicar.</div>
+    </div>
+
+    <div class="affiliate-box">
+      <img src="https://picsum.photos/seed/maquininhas-cartao-produto/200/200" alt="Produto recomendado">
+      <div class="aff-body">
+        <div class="aff-label">Recomendação</div>
+        <h4>Comparador de maquininhas de cartão</h4>
+        <p>Compare taxas e prazos de recebimento entre as principais maquininhas do mercado.</p>
+        <a href="#SEU-LINK-DE-AFILIADO-AQUI" class="aff-btn">Ver produto →</a>
+      </div>
+    </div>
+
+    <div class="key-takeaway">
+      <div class="kt-label">Resumo rápido</div>
+      <p>Escolha a maquininha comparando taxa e prazo de recebimento com base no seu volume real de vendas — não só pela taxa anunciada. Use antecipação de recebíveis como exceção, não como hábito.</p>
+    </div>
+
+    <div class="share-row">
+      <span class="label">Compartilhar</span>
+      <a href="#" class="share-btn">X</a>
+      <a href="#" class="share-btn">in</a>
+      <a href="#" class="share-btn">✉</a>
+    </div>
+
+    <div class="article-footer-nav">
+      <a href="artigo-impostos-notas-fiscais.html" class="btn-ghost">← Artigo anterior</a>
+      <a href="artigo-contas-bancarias-mei.html" class="btn-ghost">Próximo artigo →</a>
+    </div>
+  </div>
+</article>
+
+<section class="related-band">
+  <div class="wrap">
+    <div class="section-tag">Continue lendo</div>
+    <h2>Relacionados</h2>
+    <div class="article-grid">
+      <a href="artigo-reserva-emergencia.html" class="article-card">
+        <div class="article-thumb thumb-money"><span>Dinheiro</span></div>
+        <div class="article-body">
+          <div class="article-cat">Finanças</div>
+          <h3>Como montar uma reserva de emergência ganhando renda variável</h3>
+          <p>Um método simples pra guardar dinheiro mesmo quando o faturamento muda todo mês.</p>
+          <div class="article-meta"><span>8 min de leitura</span><span>Guia</span></div>
+        </div>
+      </a>
+      <a href="artigo-bloco-de-3-horas.html" class="article-card">
+        <div class="article-thumb thumb-time"><span>Tempo</span></div>
+        <div class="article-body">
+          <div class="article-cat">Produtividade</div>
+          <h3>O bloco de 3 horas: a técnica que substituiu minha lista de tarefas</h3>
+          <p>Por que listas infinitas não funcionam pra quem trabalha sozinho — e o que fazer no lugar.</p>
+          <div class="article-meta"><span>6 min de leitura</span><span>Método</span></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-inner">
+      <a href="index.html" class="logo"><span class="mark"></span>Vida do Autônomo</a>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Conteúdo</h4>
+          <a href="index.html#pilares">Pilares</a>
+          <a href="artigos.html">Artigos</a>
+          <a href="index.html#newsletter">Newsletter</a>
+        </div>
+        <div class="footer-col">
+          <h4>Site</h4>
+          <a href="sobre.html">Sobre</a>
+          <a href="contato.html">Contato</a>
+          <a href="privacidade.html">Política de privacidade</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Vida do Autônomo</span>
+      <span>Dinheiro · Tempo · Energia</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const bar = document.getElementById('progressBar');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    bar.style.width = scrolled + '%';
+  });
+</script>
+
+</body>
+</html>
